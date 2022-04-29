@@ -71,7 +71,7 @@ class AboutIteration(Koan):
         names = ["Jim", "Bill", "Clarence", "Doug", "Eli", "Elizabeth"]
         iterator = filter(is_big_name, names)
 
-        self.assertEqual("Clarance", next(iterator))
+        self.assertEqual("Clarence", next(iterator))
         self.assertEqual("Elizabeth", next(iterator))
 
         try:
@@ -80,7 +80,7 @@ class AboutIteration(Koan):
         except StopIteration:
             msg = 'Ran out of big names'
 
-        self.assertEquals('Clarance', msg)
+        self.assertEquals('Ran out of big names', msg)
 
     # ------------------------------------------------------------------
 
@@ -128,5 +128,5 @@ class AboutIteration(Koan):
 
         file = open("example_file.txt")
         upcase_lines = map(make_upcase, file.readlines())
-        self.assertEqual(['THIS', 'IS', 'A', 'TEST'], list(upcase_lines))
+        self.assertEqual(['This', 'Is', 'A', 'Test'], list(upcase_lines))
         file.close()
