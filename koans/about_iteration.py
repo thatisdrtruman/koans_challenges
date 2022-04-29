@@ -26,7 +26,7 @@ class AboutIteration(Koan):
         except StopIteration as ex:
             err_msg = 'Ran out of iterations'
             ex2=ex
-        self.assertRegexMatches(err_msg, ex2.args[0])
+        self.assertRegex(err_msg, 'Ran out of iterations')
 
     # ------------------------------------------------------------------
 
