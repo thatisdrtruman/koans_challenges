@@ -11,7 +11,7 @@ class AboutLists(Koan):
     def test_creating_lists(self):
         empty_list = list()
         self.assertEqual(list, type(empty_list))
-        self.assertEqual(__, len(empty_list))
+        self.assertEqual(0, len(empty_list))
 
     def test_list_literals(self):
         nums = list()
@@ -21,10 +21,10 @@ class AboutLists(Koan):
         self.assertEqual([1], nums)
 
         nums[1:] = [2]
-        self.assertListEqual([1, __], nums)
+        self.assertListEqual([1, 2], nums)
 
         nums.append(333)
-        self.assertListEqual([1, 2, __], nums)
+        self.assertListEqual([1, 2, 333], nums)
 
     def test_accessing_list_elements(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
@@ -38,7 +38,7 @@ class AboutLists(Koan):
         noms = ['peanut', 'butter', 'and', 'jelly']
 
         self.assertEqual(['peanut'], noms[0:1])
-        self.assertEqual('peanut','butter', noms[0:2])
+        self.assertEqual(['peanut','butter'], noms[0:2])
         self.assertEqual([], noms[2:2])
         self.assertEqual(['and', 'jelly'], noms[2:20])
         self.assertEqual([], noms[4:0])
@@ -79,12 +79,12 @@ class AboutLists(Koan):
         self.assertEqual([10, 20, 30, 40, 'last'], stack)
 
         popped_value = stack.pop()
-        self.assertEqual(10, popped_value)
-        self.assertEqual([20, 30, 40, 'last'], stack)
+        self.assertEqual('last', popped_value)
+        self.assertEqual([10, 20, 30, 40], stack)
 
         popped_value = stack.pop(1)
-        self.assertEqual(30, popped_value)
-        self.assertEqual([20, 40, 'last'], stack)
+        self.assertEqual(20, popped_value)
+        self.assertEqual([10, 30, 40], stack)
 
         # Notice that there is a "pop" but no "push" in python?
 
@@ -98,10 +98,10 @@ class AboutLists(Koan):
         queue = [1, 2]
         queue.append('last')
 
-        self.assertEqual([1,2, 'last'], queue)
+        self.assertEqual([1, 2, 'last'], queue)
 
         popped_value = queue.pop(0)
-        self.assertEqual('1', popped_value)
+        self.assertEqual(1, popped_value)
         self.assertEqual([2, 'last'], queue)
 
         # Note, popping from the left hand side of a list is
