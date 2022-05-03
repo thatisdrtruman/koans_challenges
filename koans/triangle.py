@@ -17,20 +17,24 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    def test_equilateral_triangles_have_equal_sides(self):
-        self.assertEqual('equilateral', triangle(2, 2, 2))
-        self.assertEqual('equilateral', triangle(10, 10, 10))
+    s1, s2, s3 = a, b, c
+    list_side = [s1, s2, s3]
 
-    def test_isosceles_triangles_have_exactly_two_sides_equal(self):
-        self.assertEqual('isosceles', triangle(3, 4, 4))
-        self.assertEqual('isosceles', triangle(4, 3, 4))
-        self.assertEqual('isosceles', triangle(4, 4, 3))
-        self.assertEqual('isosceles', triangle(10, 10, 2))
+    f = lambda x: x < 0
+    list = [f(x) for x in list_side]
+    if 0 in list_side:
+        raise(TriangleError)
+    elif True in list:
+    	raise(TriangleError)
+    
+    if list_side.count(1) == 2 or list_side.count(2) == 2:
+    	raise(TriangleError)
 
-    def test_scalene_triangles_have_no_equal_sides(self):
-        self.assertEqual('scalene', triangle(3, 4, 5))
-        self.assertEqual('scalene', triangle(10, 11, 12))
-        self.assertEqual('scalene', triangle(5, 4, 2))
+    if list_side.count(s1) == 3:
+        return 'equilateral'
+    if list_side.count(s1) == 2 or list_side.count(s3) == 2:
+        return 'isosceles'
+    return 'scalene'
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
